@@ -2,6 +2,7 @@ baseURL: https://chunhua-chen.github.io/
 locale: en-gb
 title: Chunhua Chen - Economics Research
 theme: PaperMod
+publishDir: docs
 
 enableRobotsTXT: true
 buildDrafts: false

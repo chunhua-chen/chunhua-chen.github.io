@@ -58,6 +58,13 @@ a:hover {
 }
 
 /* -------- Homepage -------- */
+
+/* Override PaperMod's .main on home page: let our custom layout control everything */
+body.list .main {
+  max-width: 100%;
+  padding: 0;
+}
+
 .home-main {
   max-width: var(--max-width-home);
   margin: 0 auto;
