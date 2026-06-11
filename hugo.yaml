@@ -14,22 +14,9 @@ params:
   description: "Economics researcher at UK university - Labor Economics, Applied Microeconomics"
   author: Chunhua Chen
 
-  # Profile Mode: 学术个人主页模式
+  # Profile Mode: 改为自定义首页，不使用默认 profileMode
   profileMode:
-    enabled: true
-    title: Chunhua Chen
-    subtitle: "PhD in Economics | Researcher at UK University"
-    imageUrl: "avatar.jpg"
-    imageTitle: "Chunhua Chen"
-    imageWidth: 160
-    imageHeight: 160
-    buttons:
-      - name: CV
-        url: "/cv.pdf"
-      - name: Research
-        url: "/publications"
-      - name: Contact
-        url: "/contact"
+    enabled: false
 
   # 社交链接（先放框架，后面填真实链接）
   socialIcons:

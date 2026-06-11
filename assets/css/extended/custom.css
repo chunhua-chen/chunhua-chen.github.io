@@ -1,0 +1,302 @@
+/* ============================================================
+   Custom Academic Styling — Chunhua Chen
+   ============================================================ */
+
+/* -------- CSS Variables -------- */
+:root {
+  --accent: #1e3a5f;
+  --accent-light: #2c5282;
+  --accent-bg: #ebf4ff;
+  --text-primary: #1a202c;
+  --text-secondary: #4a5568;
+  --text-muted: #a0aec0;
+  --border-subtle: #e2e8f0;
+  --bg-secondary: #f7fafc;
+  --radius: 8px;
+  --font-serif: 'Georgia', 'Times New Roman', serif;
+  --max-width-home: 820px;
+}
+
+/* -------- Global Overrides -------- */
+body {
+  color: var(--text-primary);
+  line-height: 1.7;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+a:hover {
+  color: var(--accent-light);
+}
+
+/* -------- Header -------- */
+.header {
+  border-bottom: 1px solid var(--border-subtle);
+  background: #fff;
+}
+
+.header nav {
+  max-width: var(--max-width-home);
+}
+
+.header-nav .logo a {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+
+#menu a {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+
+/* -------- Homepage -------- */
+.home-main {
+  max-width: var(--max-width-home);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Hero Section */
+.hero {
+  padding: 4rem 0 3rem;
+  text-align: center;
+}
+
+.hero-avatar {
+  margin: 0 auto 1.75rem;
+  width: 150px;
+  height: 150px;
+}
+
+.hero-avatar img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid var(--border-subtle);
+  object-fit: cover;
+  background: var(--bg-secondary);
+}
+
+.hero-name {
+  font-family: var(--font-serif);
+  font-size: 2.25rem;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin: 0 0 0.35rem;
+  letter-spacing: -0.02em;
+}
+
+.hero-title {
+  font-size: 1.1rem;
+  color: var(--accent);
+  margin: 0 0 0.25rem;
+  font-weight: 500;
+}
+
+.hero-affiliation {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin: 0 0 1.5rem;
+}
+
+/* Hero Buttons */
+.hero-links {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.hero-link {
+  display: inline-block;
+  padding: 0.45rem 1.25rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  background: #fff;
+  transition: all 0.15s ease;
+}
+
+.hero-link:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-bg);
+}
+
+.hero-link-primary {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+.hero-link-primary:hover {
+  background: var(--accent-light);
+  border-color: var(--accent-light);
+  color: #fff;
+}
+
+/* Social Icons */
+.hero-social {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  padding-top: 0.5rem;
+}
+
+.hero-social a {
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  transition: all 0.15s ease;
+}
+
+.hero-social a:hover {
+  color: var(--accent);
+  background: var(--accent-bg);
+}
+
+/* About Section */
+.home-about {
+  padding: 2rem 0 3rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.home-about h2 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin: 0 0 1rem;
+}
+
+.home-about > p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  max-width: 680px;
+}
+
+/* Cards Grid */
+.home-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.home-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+.home-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--accent);
+  margin: 0 0 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.home-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.home-card li {
+  padding: 0.2rem 0;
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+}
+
+.home-card li::before {
+  content: "— ";
+  color: var(--text-muted);
+}
+
+.home-card p {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  margin: 0 0 0.45rem;
+  line-height: 1.55;
+}
+
+/* -------- Content Pages -------- */
+.post-content {
+  max-width: 720px;
+}
+
+.post-content h2 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  color: var(--text-primary);
+  margin-top: 2.5rem;
+}
+
+.post-content h3 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  color: var(--accent);
+  margin-top: 1.5rem;
+}
+
+/* -------- Footer -------- */
+.footer {
+  border-top: 1px solid var(--border-subtle);
+  padding: 2rem 1rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  max-width: var(--max-width-home);
+  margin: 0 auto;
+}
+
+/* -------- Responsive -------- */
+@media (max-width: 600px) {
+  .hero {
+    padding: 2.5rem 0 2rem;
+  }
+
+  .hero-name {
+    font-size: 1.75rem;
+  }
+
+  .home-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-links {
+    gap: 0.4rem;
+  }
+
+  .hero-link {
+    padding: 0.4rem 1rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* -------- Theme Toggle -------- */
+.theme-toggle {
+  opacity: 0.6;
+}
+.theme-toggle:hover {
+  opacity: 1;
+}
