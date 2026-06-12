@@ -1,0 +1,51 @@
+<!-- SVG Favicon (modern browsers) -->
+<link rel="icon" type="image/svg+xml" href="{{ "favicon.svg" | relURL }}">
+
+<!-- Skip to content (accessibility) -->
+<style>
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    z-index: 1000;
+    padding: 0.75rem 1.5rem;
+    background: var(--accent);
+    color: #fff !important;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+  }
+  .skip-link:focus {
+    top: 0;
+  }
+</style>
+
+<!-- Schema.org Person structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Chunhua Chen",
+  "givenName": "Chunhua",
+  "familyName": "Chen",
+  "jobTitle": "Researcher in Economics",
+  "description": "Economics researcher at UK university specializing in labour economics, applied microeconomics, and public policy evaluation.",
+  "url": "{{ .Site.BaseURL }}",
+  "sameAs": [
+    "https://scholar.google.com/",
+    "https://orcid.org/",
+    "https://github.com/chunhua-chen"
+  ],
+  "knowsAbout": [
+    "Labour Economics",
+    "Applied Microeconomics",
+    "Public Policy Evaluation",
+    "Causal Inference"
+  ],
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "UK University"
+  },
+  "image": "{{ "avatar.svg" | absURL }}"
+}
+</script>

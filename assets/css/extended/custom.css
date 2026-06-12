@@ -17,7 +17,67 @@
   --max-width-home: 820px;
 }
 
+/* -------- Dark Mode -------- */
+[data-theme="dark"] {
+  --accent: #5b9bd5;
+  --accent-light: #7ab8e8;
+  --accent-bg: #1a2744;
+  --text-primary: #e2e8f0;
+  --text-secondary: #a0aec0;
+  --text-muted: #718096;
+  --border-subtle: #2d3748;
+  --bg-secondary: #1a202c;
+}
+
+[data-theme="dark"] .header {
+  background: #16181d;
+}
+
+[data-theme="dark"] .hero-link {
+  background: #1a202c;
+  border-color: #2d3748;
+  color: #e2e8f0;
+}
+
+[data-theme="dark"] .hero-link:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-bg);
+}
+
+[data-theme="dark"] .hero-link-primary {
+  background: var(--accent);
+  color: #1a202c;
+  border-color: var(--accent);
+}
+
+[data-theme="dark"] .hero-link-primary:hover {
+  background: var(--accent-light);
+  color: #1a202c;
+}
+
+[data-theme="dark"] .hero-avatar img {
+  border-color: #2d3748;
+}
+
+[data-theme="dark"] #menu a {
+  color: #a0aec0;
+}
+
+[data-theme="dark"] #menu a:hover,
+[data-theme="dark"] #menu .active {
+  color: var(--accent);
+}
+
+[data-theme="dark"] .header-nav .logo a {
+  color: #e2e8f0;
+}
+
 /* -------- Global Overrides -------- */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   color: var(--text-primary);
   line-height: 1.7;
@@ -75,6 +135,24 @@ body.list .main {
 .hero {
   padding: 4rem 0 3rem;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle dot pattern background */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, var(--accent) 0.5px, transparent 0.5px);
+  background-size: 28px 28px;
+  opacity: 0.04;
+  pointer-events: none;
+}
+
+[data-theme="dark"] .hero::before {
+  opacity: 0.06;
+  background-image: radial-gradient(circle, #5b9bd5 0.5px, transparent 0.5px);
 }
 
 .hero-avatar {
@@ -183,6 +261,56 @@ body.list .main {
   border-top: 1px solid var(--border-subtle);
 }
 
+/* Highlights / News Section */
+.home-highlights {
+  padding: 2.5rem 0 2rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.home-highlights h2 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin: 0 0 1.25rem;
+}
+
+.highlights-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.highlight-item {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.highlight-item:last-child {
+  border-bottom: none;
+}
+
+.highlight-date {
+  font-family: var(--font-serif);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-bg);
+  padding: 0.15rem 0.6rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.highlight-text {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
 .home-about h2 {
   font-family: var(--font-serif);
   font-size: 1.5rem;
@@ -276,6 +404,143 @@ body.list .main {
   margin: 0 auto;
 }
 
+/* -------- Publication Cards -------- */
+.pub-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin: 1.25rem 0 2rem;
+}
+
+.pub-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pub-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="dark"] .pub-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+.pub-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.pub-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.18rem 0.6rem;
+  border-radius: 4px;
+}
+
+.pub-badge-review {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.pub-badge-wp {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.pub-badge-journal {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+[data-theme="dark"] .pub-badge-review {
+  background: #422006;
+  color: #fbbf24;
+}
+
+[data-theme="dark"] .pub-badge-wp {
+  background: #1e3a5f;
+  color: #93c5fd;
+}
+
+[data-theme="dark"] .pub-badge-journal {
+  background: #064e3b;
+  color: #6ee7b7;
+}
+
+.pub-year {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-family: var(--font-serif);
+}
+
+.pub-title {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin: 0 0 0.4rem;
+  line-height: 1.45;
+}
+
+.pub-venue {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin: 0 0 0.5rem;
+}
+
+.pub-links {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 0.4rem;
+}
+
+.pub-link {
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 0.2rem 0.7rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  color: var(--accent);
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.pub-link:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+.pub-card-wip {
+  border-left: 3px solid var(--accent);
+}
+
+.pub-card-wip .pub-title {
+  margin: 0;
+}
+
+/* -------- Accessibility: Reduced Motion -------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 /* -------- Responsive -------- */
 @media (max-width: 600px) {
   .hero {
@@ -298,6 +563,107 @@ body.list .main {
     padding: 0.4rem 1rem;
     font-size: 0.8rem;
   }
+
+  .highlight-item {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}
+
+/* -------- Animations -------- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.hero {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.hero-avatar {
+  animation: fadeInUp 0.6s ease-out 0.1s both;
+}
+
+.hero-name {
+  animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+.hero-title,
+.hero-affiliation {
+  animation: fadeInUp 0.6s ease-out 0.25s both;
+}
+
+.hero-links {
+  animation: fadeInUp 0.6s ease-out 0.3s both;
+}
+
+.hero-social {
+  animation: fadeInUp 0.6s ease-out 0.35s both;
+}
+
+.home-about {
+  animation: fadeInUp 0.6s ease-out 0.4s both;
+}
+
+.home-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.home-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+}
+
+[data-theme="dark"] .home-card:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* -------- Link Underline Animation -------- */
+.post-content a:not(.hero-link),
+.home-about a:not(.hero-link) {
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.3s ease;
+}
+
+.post-content a:hover:not(.hero-link),
+.home-about a:hover:not(.hero-link) {
+  background-size: 100% 1px;
+}
+
+/* -------- Card Hover Enhancements -------- */
+#menu a {
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+#menu a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--accent);
+  transition: width 0.25s ease;
+}
+
+#menu a:hover::after,
+#menu .active::after {
+  width: 100%;
 }
 
 /* -------- Theme Toggle -------- */
@@ -306,4 +672,99 @@ body.list .main {
 }
 .theme-toggle:hover {
   opacity: 1;
+}
+
+/* -------- Keyboard Focus -------- */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.skip-link:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: -2px;
+}
+
+/* -------- Print Styles -------- */
+@media print {
+  .header,
+  .footer,
+  .scroll-progress,
+  .skip-link,
+  .theme-toggle,
+  .top-link,
+  .hero-social,
+  .hero-links,
+  #theme-toggle {
+    display: none !important;
+  }
+
+  body {
+    color: #000;
+    background: #fff;
+    font-size: 11pt;
+    line-height: 1.5;
+  }
+
+  .hero {
+    padding: 1rem 0;
+    text-align: left;
+  }
+
+  .hero::before {
+    display: none;
+  }
+
+  .hero-avatar img {
+    border: 1px solid #ccc;
+    max-width: 80px;
+    height: auto;
+  }
+
+  .hero-name {
+    font-size: 1.5rem;
+    color: #000;
+  }
+
+  .hero-title,
+  .hero-affiliation {
+    color: #333;
+  }
+
+  .home-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+
+  .home-card {
+    border: 1px solid #ddd;
+    background: none;
+    box-shadow: none;
+    break-inside: avoid;
+  }
+
+  .pub-card {
+    border: 1px solid #ddd;
+    background: none;
+    box-shadow: none;
+    break-inside: avoid;
+  }
+
+  .pub-badge {
+    border: 1px solid #999;
+    background: none !important;
+    color: #000 !important;
+  }
+
+  a {
+    color: #000;
+    text-decoration: underline;
+  }
+
+  .home-main {
+    max-width: 100%;
+    padding: 0;
+  }
 }
