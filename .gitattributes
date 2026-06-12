@@ -1,0 +1,3 @@
+# Force LF line endings for all text files to ensure SRI integrity hashes match
+# between local Windows builds (CRLF) and GitHub Pages served files (LF)
+* text=auto eol=lf
