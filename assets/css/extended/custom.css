@@ -73,6 +73,19 @@
   color: #e2e8f0;
 }
 
+[data-theme="dark"] .section-card {
+  background: #1a202c;
+  border-color: #2d3748;
+}
+
+[data-theme="dark"] .section-card:hover {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .section-card h2 {
+  border-color: #2d3748;
+}
+
 /* -------- Global Overrides -------- */
 html {
   scroll-behavior: smooth;
@@ -96,10 +109,15 @@ a:hover {
 .header {
   border-bottom: 1px solid var(--border-subtle);
   background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .header nav {
-  max-width: var(--max-width-home);
+  max-width: 960px;
 }
 
 .header-nav .logo a {
@@ -111,24 +129,164 @@ a:hover {
 }
 
 #menu a {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   font-weight: 500;
+}
+
+/* Fix nav menu overflow — remove PaperMod's scrollbar behavior */
+.menu {
+  overflow-x: visible !important;
+  white-space: normal !important;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  row-gap: 0;
+}
+
+.menu li {
+  display: flex;
+  align-items: center;
 }
 
 /* -------- Homepage -------- */
 
-/* Override PaperMod's .main on home page: let our custom layout control everything */
-body.list .main {
-  max-width: 100%;
-  padding: 0;
-}
-
-.home-main {
+/* Override PaperMod's .main on home page only: let our custom layout control everything */
+body.list .home-main {
   max-width: var(--max-width-home);
   margin: 0 auto;
   padding: 0 1.5rem;
+}
+
+/* Sub-pages: keep PaperMod's .main centered but add our card layout */
+body.list .main {
+  max-width: var(--max-width-home);
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+/* Section page card layout */
+.section-page {
+  max-width: 100%;
+}
+
+.section-page-intro {
+  margin-bottom: 2rem;
+}
+
+.section-page-intro p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 680px;
+}
+
+.section-page h1 {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem;
+}
+
+.section-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.25rem;
+  transition: box-shadow 0.2s ease;
+}
+
+.section-card:hover {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="dark"] .section-card:hover {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+}
+
+.section-card h2 {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--accent);
+  margin: 0 0 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.section-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin: 0 0 0.35rem;
+}
+
+.section-card p {
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin: 0 0 0.5rem;
+}
+
+.section-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.section-card li {
+  padding: 0.2rem 0;
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+.section-card li::before {
+  content: "— ";
+  color: var(--text-muted);
+}
+
+.section-card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin: 1rem 0;
+}
+
+.section-card-grid .section-card {
+  margin-bottom: 0;
+}
+
+/* Contact card */
+.section-card-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.section-card-contact .contact-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+}
+
+.section-card-contact .contact-icon {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  color: var(--accent);
+  margin-top: 2px;
+}
+
+.section-card-contact .contact-label {
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-right: 0.35rem;
 }
 
 /* Hero Section */
@@ -555,6 +713,10 @@ body.list .main {
     grid-template-columns: 1fr;
   }
 
+  .section-card-grid {
+    grid-template-columns: 1fr;
+  }
+
   .hero-links {
     gap: 0.4rem;
   }
@@ -567,6 +729,18 @@ body.list .main {
   .highlight-item {
     flex-direction: column;
     gap: 0.25rem;
+  }
+
+  .header nav {
+    padding: 0 0.75rem;
+  }
+
+  .menu {
+    justify-content: flex-start;
+  }
+
+  body.list .main {
+    padding: 1.5rem 1rem;
   }
 }
 
